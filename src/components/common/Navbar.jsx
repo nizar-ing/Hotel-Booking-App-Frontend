@@ -167,7 +167,7 @@ function Navbar() {
               />
             </g>
           </svg>
-          <span className="brand-text">Momed Hotel</span>
+          <span className="brand-text">The Ritz-Carlton</span>
         </NavLink>
       </div>
 

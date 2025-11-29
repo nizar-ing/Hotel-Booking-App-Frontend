@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer-container">
         {/* About Section */}
         <div className="footer-section">
-          <h3 className="footer-title">Momed Hotel</h3>
+          <h3 className="footer-title">The Ritz-Carlton Hotel</h3>
           <p className="footer-description">
             Your perfect destination for luxury and comfort. Experience
             world-class hospitality and exceptional service in the heart of the
@@ -154,7 +154,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="footer-bottom">
-        <p>&copy; 2025 Momed Hotel. All Rights Reserved.</p>
+        <p>&copy; 2025 The Ritz-Carlton. All Rights Reserved.</p>
         <div className="designer-info">
           <img
             src="./images/nizar.png"
