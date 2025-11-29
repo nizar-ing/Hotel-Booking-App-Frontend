@@ -13,6 +13,7 @@
     "@stripe/react-stripe-js": "^5.4.1",
     "@stripe/stripe-js": "^8.5.3",
     "axios": "^1.13.2",
+    "crypto-js": "^4.2.0",
     "crypto.js": "^3.3.4",
     "react": "^19.2.0",
     "react-day-picker": "^9.11.2",
