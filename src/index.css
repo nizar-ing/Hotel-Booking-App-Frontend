@@ -392,6 +392,535 @@ button[type="submit"]:hover {
   margin-bottom: 20px;
 }
 
+* {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #666;
+  /* box-sizing: border-box; */
+  overflow-x: hidden;
+}
+
+/* App Layout */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  width: 100%;
+}
+
+.colors {
+  color: pink;
+  color: #ff007f;
+  color: #cc0066;
+  color: #319055;
+  color: #003366;
+  color: #36454f;
+  color: #007f86;
+  color: #007f86;
+}
+
+/* General Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 70px 25px 75px;
+  background: #1a4d52 linear-gradient(135deg, #1a4d52 0%, #0f3d42 50%, #1a4d52 100%);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.15);
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 3px solid #007f86;
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff7f50 0%, #ffd700 50%, #ff7f50 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand .brand-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-brand .brand-link:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+.hotel-logo {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px rgba(0, 127, 134, 0.2));
+}
+
+.navbar-brand .brand-link:hover .hotel-logo {
+  transform: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 127, 134, 0.2));
+}
+
+.brand-text {
+  white-space: nowrap;
+  letter-spacing: 1px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 127, 134, 0.4),
+  0 0 30px rgba(0, 127, 134, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  font-family: "Arial", "Helvetica", sans-serif;
+  background: linear-gradient(135deg, #ffffff 0%, #e8f4f5 50%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.navbar-brand .brand-link:hover .brand-text {
+  letter-spacing: 1.2px;
+  transform: scale(1.03);
+  background: linear-gradient(
+          135deg,
+          #ffffff 0%,
+          #ffd700 30%,
+          #ff7f50 60%,
+          #ffffff 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 100%;
+  animation: textShimmer 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 2px 8px rgba(255, 127, 80, 0.4));
+}
+
+@keyframes textShimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.navbar-ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.navbar-ul li {
+  margin-left: 8px;
+  position: relative;
+}
+
+.navbar-ul li a {
+  text-decoration: none;
+  color: #e8e8e8;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  position: relative;
+  letter-spacing: 0.2px;
+  font-size: 16px;
+  background-color: transparent;
+}
+
+.navbar-ul li a::before {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 70%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff7f50, #ffd700);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-ul li a:hover {
+  color: #ffffff;
+  background-color: rgba(0, 127, 134, 0.3);
+  transform: translateY(-2px);
+}
+
+.navbar-ul li a:hover::before {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.navbar-ul li a.active {
+  color: #ffffff;
+  background-color: rgba(0, 127, 134, 0.4);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 127, 134, 0.3);
+}
+
+.navbar-ul li a.active::before {
+  transform: translateX(-50%) scaleX(1);
+  background: linear-gradient(90deg, #ff7f50, #ffd700);
+  height: 3px;
+}
+
+/* Logout button styling */
+.navbar-ul li.logout-btn {
+  color: #e8e8e8;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+  font-size: 16px;
+  background-color: transparent;
+  position: relative;
+  margin-left: 8px;
+}
+
+.navbar-ul li.logout-btn::before {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 70%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff7f50, #ff6347);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-ul li.logout-btn:hover {
+  color: #ffffff;
+  background-color: rgba(255, 127, 80, 0.3);
+  transform: translateY(-2px);
+}
+
+.navbar-ul li.logout-btn:hover::before {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Enhanced Auth Container */
+.auth-container {
+  max-width: 480px;
+  padding: 40px 35px;
+  border: none;
+  border-radius: 20px;
+  background: #ffffff;
+  margin: 40px auto 80px auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 127, 134, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #007f86, #00a8b3, #007f86);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #007f86;
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #007f86, #00a8b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Enhanced Register Link */
+.register-link {
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 1px solid #e0e0e0;
+  font-size: 14px;
+  text-align: center;
+  color: #666;
+}
+
+.register-link a {
+  color: #007f86;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.register-link a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #007f86, #00a8b3);
+  transition: width 0.3s ease;
+}
+
+.register-link a:hover {
+  color: #00a8b3;
+}
+
+.register-link a:hover::after {
+  width: 100%;
+}
+
+/* Enhanced Form Group */
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.form-group:focus-within {
+  transform: translateY(-2px);
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #007f86;
+  font-size: 14px;
+  text-transform: capitalize;
+  margin-left: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Enhanced Input Fields */
+.form-group input {
+  width: 100%;
+  padding: 14px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 15px;
+  color: #333;
+  background: #f9f9f9;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+  position: relative;
+}
+
+.form-group input::placeholder {
+  color: #999;
+  font-size: 14px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #007f86;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(0, 127, 134, 0.1);
+  transform: translateY(-1px);
+}
+
+.form-group input:valid {
+  border-color: #319055;
+}
+
+/* Enhanced Submit Button */
+button[type="submit"] {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #007f86, #00a8b3);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 127, 134, 0.3);
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+button[type="submit"]::after {
+  content: "→";
+  margin-left: 10px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(135deg, #00a8b3, #007f86);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 127, 134, 0.4);
+}
+
+button[type="submit"]:hover::after {
+  transform: translateX(5px);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0, 127, 134, 0.3);
+}
+
+/**REGISTRATION PAGE END HERE*/
+
+/**NAV BAR STYLING START HERE*/
+/* NAVBAR STYLING */
+
+.link-button {
+  background-color: #007f86;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+/**NAV BAR STYLING END HERE*/
+
+/* FOOTER STYKLING */
+.my-footer {
+  position: relative;
+  background: #1a4d52 linear-gradient(135deg, #1a4d52 0%, #0f3d42 50%, #1a4d52 100%);
+  color: #e8e8e8;
+  padding: 50px 0 20px 0;
+  margin-top: auto;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.my-footer::before{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff7f50 0%, #ffd700 50%, #ff7f50 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/*
+navbar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff7f50 0%, #ffd700 50%, #ff7f50 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+*/
+
+.footer-container {
+  max-width: 1200px;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin: 0 auto 30px;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-title {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #ffffff 0%, #ffd700 50%, #ff7f50 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-heading {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-heading::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, #ff7f50, #ffd700);
+  border-radius: 2px;
+}
+
+.footer-description {
+  color: #e8e8e8;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
 .footer-social {
   display: flex;
   gap: 15px;
@@ -902,7 +1431,6 @@ button[type="submit"]:hover {
 .pagination-li {
   margin: 0 5px;
 }
-
 .pagination-button {
   background-color: #fff;
   color: #007f86;
