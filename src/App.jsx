@@ -5,6 +5,7 @@ import Footer from "./components/common/Footer.jsx";
 import RegisterPage from "./components/auth/RegisterPage.jsx";
 import LoginPage from "./components/auth/LoginPage.jsx";
 import HomePage from "./components/home/HomePage.jsx";
+import AllRoomsPage from "./components/bookings-rooms/AllRoomsPage.jsx";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
                     <Route path="/login" element={<LoginPage/>}/>
                     <Route exact path="/" element={<HomePage/>}/>
                     <Route exact path="/home" element={<HomePage/>}/>
+                    <Route path="/rooms" element={<AllRoomsPage/>} />
                 </Routes>
             </div>
             <Footer/>
