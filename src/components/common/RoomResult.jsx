@@ -12,7 +12,7 @@ const RoomResult = ({roomSearchResults}) => {
                 <div className="room-list">
                     {roomSearchResults.map(room=>(
                         <div className="room-list-item" key={room.id}>
-                            <img className="room-list-item-image" src={room.imageUrl} alt={room.roomNumber} />
+                            <img className="room-list-item-image" src={`./images/${room.imageUrl}`} alt={room.roomNumber} />
                             <div className="room-details">
                                 <h3>{room.type}</h3>
                                 <p>Price: ${room.pricePerNight}/Night</p>

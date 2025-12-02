@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, {useState, useEffect, useRef} from "react";
 import ApiClient from "../../services/ApiClient.js";
-import { DayPicker } from "react-day-picker";
+import {DayPicker} from "react-day-picker";
+import {FaCalendarAlt} from "react-icons/fa";
+import {FaBedPulse} from "react-icons/fa6";
 
-const RoomSearch = ({ handSearchResult }) => {
+const RoomSearch = ({handSearchResult}) => {
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
     const [roomType, setRoomType] = useState("");
@@ -87,21 +89,33 @@ const RoomSearch = ({ handSearchResult }) => {
         }
     };
 
-
     return (
-        <section>
+        <section className="search-container-wrapper">
             <div className="search-container">
 
-                {/* check in date and calender field */}
-                <div className="search-field" style={{ position: "relative" }}>
+                <div className="search-field" style={{position: "relative"}}>
                     <label>Check-in Date</label>
-                    <input
-                        type="text"
-                        value={startDate ? startDate.toLocaleDateString() : ""}
-                        placeholder="Select Check-In Date"
-                        onFocus={() => setStartDatePickerVisible(true)}
-                        readOnly
-                    />
+                    <div style={{position: "relative"}}>
+                        <input
+                            type="text"
+                            value={startDate ? startDate.toLocaleDateString() : ""}
+                            placeholder="Select Check-In Date"
+                            onFocus={() => setStartDatePickerVisible(true)}
+                            readOnly
+                            style={{paddingRight: "30px"}}
+                        />
+                        <FaCalendarAlt
+                            style={{
+                                position: "absolute",
+                                right: "12px",
+                                top: "50%",
+                                transform: "translateY(-50%)",
+                                color: "#ff7f50",
+                                fontSize: "18px",
+                                pointerEvents: "none"
+                            }}
+                        />
+                    </div>
 
                     {isStartDatePickerVisible && (
                         <div className="datepicker-container" ref={startDateRef}>
@@ -117,18 +131,30 @@ const RoomSearch = ({ handSearchResult }) => {
                     )}
                 </div>
 
-
-
-                {/* checkj out date and calender field */}
-                <div className="search-field" style={{ position: "relative" }}>
+                {/* check out date and calendar field */}
+                <div className="search-field" style={{position: "relative"}}>
                     <label>Check-Out Date</label>
-                    <input
-                        type="text"
-                        value={endDate ? endDate.toLocaleDateString() : ""}
-                        placeholder="Select Check-Out Date"
-                        onFocus={() => setEndDatePickerVisible(true)}
-                        readOnly
-                    />
+                    <div style={{position: "relative"}}>
+                        <input
+                            type="text"
+                            value={endDate ? endDate.toLocaleDateString() : ""}
+                            placeholder="Select Check-Out Date"
+                            onFocus={() => setEndDatePickerVisible(true)}
+                            readOnly
+                            style={{paddingRight: "30px"}}
+                        />
+                        <FaCalendarAlt
+                            style={{
+                                position: "absolute",
+                                right: "12px",
+                                top: "50%",
+                                transform: "translateY(-50%)",
+                                color: "#ff7f50",
+                                fontSize: "18px",
+                                pointerEvents: "none"
+                            }}
+                        />
+                    </div>
 
                     {isEndDatePickerVisible && (
                         <div className="datepicker-container" ref={endDateRef}>
@@ -147,9 +173,9 @@ const RoomSearch = ({ handSearchResult }) => {
                 {/* ROOM TYPE SELECTION FIELDS */}
                 <div className="search-field">
                     <label>Room Type</label>
-                    <select value={roomType} onChange={(e)=> setRoomType(e.target.value)}>
+                    <select value={roomType} onChange={(e) => setRoomType(e.target.value)}>
                         <option disabled value="">Select Room Type</option>
-                        {roomTypes.map((roomType) =>(
+                        {roomTypes.map((roomType) => (
                             <option value={roomType} key={roomType}>
                                 {roomType}
                             </option>

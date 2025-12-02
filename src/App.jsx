@@ -4,6 +4,7 @@ import Navbar from "./components/common/Navbar.jsx";
 import Footer from "./components/common/Footer.jsx";
 import RegisterPage from "./components/auth/RegisterPage.jsx";
 import LoginPage from "./components/auth/LoginPage.jsx";
+import HomePage from "./components/home/HomePage.jsx";
 
 function App() {
 
@@ -14,6 +15,8 @@ function App() {
                 <Routes>
                     <Route path="/register" element={<RegisterPage/>}/>
                     <Route path="/login" element={<LoginPage/>}/>
+                    <Route exact path="/" element={<HomePage/>}/>
+                    <Route exact path="/home" element={<HomePage/>}/>
                 </Routes>
             </div>
             <Footer/>
