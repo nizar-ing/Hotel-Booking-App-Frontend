@@ -202,7 +202,7 @@ import CryptoJS from 'crypto-js';
         this.clearAuth();
     }
 
-    static isAthenticated(){
+    static isAuthenticated(){
         const token = this.getToken();
         return !!token;
     }

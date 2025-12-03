@@ -157,7 +157,7 @@ const Footer = () => {
         <p>&copy; 2025 The Ritz-Carlton. All Rights Reserved.</p>
         <div className="designer-info">
           <img
-            src="./images/nizar.png"
+            src="/images/nizar.png"
             alt="Nizar ILAHI"
             className="designer-photo"
           />

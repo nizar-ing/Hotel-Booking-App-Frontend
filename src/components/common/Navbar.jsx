@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import ApiClient from "../../services/ApiClient.js";
 
 function Navbar() {
-  const isAuthenticated = ApiClient.isAthenticated();
+  const isAuthenticated = ApiClient.isAuthenticated();
   const isCustomer = ApiClient.isCustomer();
   const isAdmin = ApiClient.isAdmin();
 
