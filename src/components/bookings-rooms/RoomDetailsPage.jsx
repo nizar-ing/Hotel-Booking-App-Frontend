@@ -54,11 +54,19 @@ const RoomDetailsPage = () => {
         if (!checkInDate || !checkOutDate) {
             setErrorMessage("Please select both check-in and check-out dates");
             setTimeout(() => setErrorMessage(null), 3000);
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // This makes it scroll smoothly instead of jumping instantly
+            });
             return;
         }
 
         setTotalPrice(calculateTotalPrice());
         setShowBookingPreview(true);
+        window.scrollTo({
+            bottom: 0,
+            behavior: 'smooth' // This makes it scroll smoothly instead of jumping instantly
+        });
     };
 
     const acceptBooking = async () => {
@@ -86,6 +94,11 @@ const RoomDetailsPage = () => {
             }
         } catch (error) {
             setErrorMessage(error.response?.data?.message || error.message);
+        } finally {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // This makes it scroll smoothly instead of jumping instantly
+            });
         }
     };
 
@@ -155,11 +168,11 @@ const RoomDetailsPage = () => {
                     <div className="booking-preview">
                         <h3>Booking Preview</h3>
                         <p>
-                            <strong>Check-in Date:</strong>{" "}
+                            <strong>Check-in Date:</strong>
                             {checkInDate?.toLocaleDateString("en-CA")}
                         </p>
                         <p>
-                            <strong>Check-out Date:</strong>{" "}
+                            <strong>Check-out Date:</strong>
                             {checkOutDate?.toLocaleDateString("en-CA")}
                         </p>
                         <p>
@@ -168,10 +181,16 @@ const RoomDetailsPage = () => {
                         <p>
                             <strong>Total Price:</strong> ${totalPrice}
                         </p>
-                        <button onClick={acceptBooking}>Confirm and Book</button>
+                        <button className="btn" onClick={acceptBooking}>Confirm and Book</button>
                         <button
                             className="cancel-booking"
-                            onClick={() => setShowBookingPreview(false)}
+                            onClick={() => {
+                                setShowBookingPreview(false);
+                                window.scrollTo({
+                                    top: 0,
+                                    behavior: 'smooth' // This makes it scroll smoothly instead of jumping instantly
+                                });
+                            }}
                         >
                             Cancel
                         </button>

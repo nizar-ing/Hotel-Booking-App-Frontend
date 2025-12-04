@@ -34,7 +34,7 @@ const FindBookingPage = () => {
                     value={confirmationCode}
                     onChange={(e) => setConfirmationCode(e.target.value)}
                 />
-                <button onClick={handleSearch}>Find</button>
+                <button className="btn" onClick={handleSearch}>Find</button>
             </div>
             {error && <p style={{ color: 'red' }}>{error}</p>}
             {bookingDetails && (
@@ -50,7 +50,7 @@ const FindBookingPage = () => {
                     <br />
                     <hr />
                     <br />
-                    <h3>Booker Detials</h3>
+                    <h3>Booker Details</h3>
                     <div>
                         <p> First Name: {bookingDetails.user.firstName}</p>
                         <p> Last Name: {bookingDetails.user.lastName}</p>

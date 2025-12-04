@@ -10,6 +10,8 @@ import RoomDetailsPage from "./components/bookings-rooms/RoomDetailsPage.jsx";
 import {Toaster} from "react-hot-toast";
 import {CustomerRoute} from "./services/guard.jsx";
 import FindBookingPage from "./components/bookings-rooms/FindBookingPage.jsx";
+import ProfilePage from "./components/profile/ProfilePage.jsx";
+import EditProfile from "./components/profile/EditProfile.jsx";
 
 function App() {
 
@@ -32,6 +34,22 @@ function App() {
                             element={
                                 <CustomerRoute>
                                     <RoomDetailsPage/>
+                                </CustomerRoute>
+                            }
+                        />
+                        <Route
+                            path="/profile"
+                            element={
+                                <CustomerRoute>
+                                    <ProfilePage />
+                                </CustomerRoute>
+                            }
+                        />
+                        <Route
+                            path="/edit-profile"
+                            element={
+                                <CustomerRoute>
+                                    <EditProfile />
                                 </CustomerRoute>
                             }
                         />
